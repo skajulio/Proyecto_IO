@@ -1,0 +1,44 @@
+﻿@model Y2K.Models.ReservationVM
+@{
+    ViewBag.Title = "Resultado";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class=" container">
+    <h2>Resultado</h2>
+
+    @using (Html.BeginForm("Resultado", "Reservation"))
+    {
+
+        <table class="form-group  table-striped">
+            <tbody>
+                <tr>
+                    <td width="90px" height="40px">@Html.LabelFor(m => m.Reservation.Nombre)</td>
+                    <td>@Html.DisplayFor(m => m.Reservation.Nombre)</td>
+                </tr>
+                <tr>
+                    <td width="90px" height="40px">@Html.Label("Apellido")</td>
+                    <td>@Html.DisplayFor(m => m.Reservation.LastName)</td>
+                </tr>
+                <tr>
+                    <td width="90px" height="40px">@Html.LabelFor(m => m.Reservation.Email)</td>
+                    <td>@Html.DisplayFor(m => m.Reservation.Email)</td>
+                </tr>
+                <tr>
+                    <td width="90px" height="40px">@Html.Label("Ciudad")</td>
+                    <td>@Html.DisplayFor(m => m.Reservation.City.Name)</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td width="90px" height="40px">@Html.Label("Clima")</td>
+                    <td><img src='@string.Format("http://openweathermap.org/img/w/{0}.png",@Model.Weather.Icon)' /></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td width="90px" height="40px">@Html.Label("Recomendación: ")</td>
+                    <td>@Html.DisplayFor(m => m.Mensaje)</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    }
+</div>

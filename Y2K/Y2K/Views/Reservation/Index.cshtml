@@ -1,0 +1,53 @@
+﻿@model Y2K.Models.ReservationVM
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class=" container">
+    <h2>Index</h2>
+    @using (Html.BeginForm("Index", "Reservation"))
+    {
+        @Html.HiddenFor(m => m.Reservation.Id)
+        <table class="form-group table-striped">
+            <tbody>
+                <tr>
+                    <td width="90px" height="40px">
+                        @Html.LabelFor(m => m.Reservation.Nombre)
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(m => m.Reservation.Nombre)
+                        @Html.ValidationMessageFor(m => m.Reservation.Nombre)
+                    </td>
+                </tr>
+                <tr>
+                    <td width="90px" height="40px">
+                        @Html.LabelFor(m => m.Reservation.LastName)
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(m => m.Reservation.LastName)
+                        @Html.ValidationMessageFor(m => m.Reservation.LastName)
+                    </td>
+                </tr>
+                <tr>
+                    <td width="90px" height="40px">
+                        @Html.LabelFor(m => m.Reservation.Email)
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(m => m.Reservation.Email)
+                        @Html.ValidationMessageFor(m => m.Reservation.Email)
+                    </td>
+                </tr>
+                <tr>
+                    <td width="90px" height="40px">
+                        @Html.LabelFor(m => m.Reservation.CityId)
+                    </td>
+                    <td>
+                        @Html.DropDownListFor(m => m.Reservation.CityId, new SelectList(Model.City, "Id", "Name"))
+                        @Html.ValidationMessageFor(m => m.Reservation.CityId)
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <input class="btn-primary btn" type="submit" value="Guardar" />
+    }
+    </div>
